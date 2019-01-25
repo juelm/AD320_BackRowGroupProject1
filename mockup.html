@@ -26,8 +26,7 @@
             }
             #message-style {
                 width: 100%;
-                min-height: 10em;
-            
+                min-height: 10em;            
             }
             #submit-container {
                 margin:0.5em;
@@ -53,12 +52,21 @@
             }
             #bot-box {
                 flex: 1;
-                overflow-y: scroll;
-            
+                overflow-y: scroll;  
             }
             #title-box {
                 text-align: center;
                 margin-bottom: 0;
+            }
+            #title-container{
+            	width: 100%;
+            	margin: 0;
+            }
+
+            #name-linked, #date{
+            	width:50%;
+                display: inline-block;
+                text-align: center;       
             }
             .message-container {
             border: 1px solid;
@@ -67,16 +75,13 @@
             }
             #message-style {
                 resize: vertical;
-                max-height: 200px;
-            
+                max-height: 200px;  
             }
             #footer {
                 text-align: center;
-            
             }
         </style>
-    </head>
-    
+    </head>  
     <body>
         <div id="outer-frame" class="box">
             <div id="title-box" class="box">
@@ -91,7 +96,7 @@
             <div id="bot-box" class="box">
                 <div class="message-container">
                     <div id="title-container">
-                        <a href="mailto:someone@example.com">Name Here</a>  - 1/22/2019
+                       <div id="name-linked"><a href="mailto:someone@example.com">Name Here</a></div><div id="date">1/21/2019</div>
                     </div>
                     <hr>
                     <div id="message-content">
@@ -100,7 +105,7 @@
                 </div>
                 <div class="message-container">
                     <div id="title-container">
-                        <a href="mailto:someone@example.com">Name Here</a> - 1/21/2019
+                       <div id="name-linked"><a href="mailto:someone@example.com">Name Here</a></div><div id="date">1/21/2019</div>
                     </div>
                     <hr>
                     <div id="message-content">
@@ -109,7 +114,7 @@
                 </div>
                 <div class="message-container">
                     <div id="title-container">
-                        <a href="mailto:someone@example.com">Name Here</a>  -1/20/2019
+                       <div id="name-linked"><a href="mailto:someone@example.com">Name Here</a></div><div id="date">1/21/2019</div>
                     </div>
                     <hr>
                     <div id="message-content">
@@ -118,7 +123,7 @@
                 </div>
                 <div class="message-container">
                     <div id="title-container">
-                        <a href="mailto:someone@example.com">Name Here</a>  - 1/19/2019
+                       <div id="name-linked"><a href="mailto:someone@example.com">Name Here</a></div><div id="date">1/21/2019</div>
                     </div>
                     <hr>
                     <div id="message-content">
@@ -127,7 +132,7 @@
                 </div>
                 <div class="message-container">
                     <div id="title-container">
-                        <a href="mailto:someone@example.com">Name Here</a>  - 1/18/2019
+                       <div id="name-linked"><a href="mailto:someone@example.com">Name Here</a></div><div id="date">1/21/2019</div>
                     </div>
                     <hr>
                     <div id="message-content">
@@ -136,33 +141,17 @@
                 </div>
                 <div class="message-container">
                     <div id="title-container">
-                        <a href="mailto:someone@example.com">Name Here</a>  - 1/17/2019
+                       <div id="name-linked"><a href="mailto:someone@example.com">Name Here</a></div><div id="date">1/21/2019</div>
                     </div>
                     <hr>
                     <div id="message-content">
                         Hello very nice web site Hello very nice web site Hello very nice web site Hello very nice web site Hello very nice web site Hello very nice web site 
                     </div>
                 </div>
-            </div>
-            
-            
-            
-            
-            
-            
-            
-            
+            </div>         
             <div id="footer" class="box">
                 <a href="linkhere"><<</a> [<a href="linkhere">1</a>] [<a href="linkhere">2</a>] [<a href="linkhere">3</a>] [<a href="linkhere">4</a>] <a href="linkhere">>></a>
             </div>
-        
-        
         </div>
-    
-    
-    
     </body>
-
-
-
 <html>
