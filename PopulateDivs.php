@@ -5,7 +5,8 @@
         echo "
 <div class='message-container'>
     <div id='title-container'>
-        <a href='mailto:{$dataArray['email']}'>{$dataArray['name']}</a>  - 1/22/2019
+        <div id='name-linked'><a href='mailto:{$dataArray['email']}'>{$dataArray['name']}</a></div>
+        <div id='date'>{$dataArray["date"]}</div>
     </div>
     <hr>
     <div id='message-content'>
