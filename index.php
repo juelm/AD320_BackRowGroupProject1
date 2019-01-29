@@ -57,7 +57,7 @@
                 margin:0.5em;
             
             }
-            label {
+            .marker {
                 display: inline-block;
                 float: left;
                 clear: left;
