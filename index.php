@@ -9,6 +9,18 @@
 <html>
     <head>
         <title>mockup</title>
+        <script>
+            var maxChar;
+            function zeroCount(){
+                maxChar = document.getElementById("message-style").maxLength;
+                document.getElementById('counter_div').innerHTML = 
+                    '0/'+maxChar;
+            }
+            function counter(msg){
+                document.getElementById('counter_div').innerHTML = 
+                    msg.value.length+'/'+maxChar;
+            }
+        </script>
         <style>
             #outer-frame {
                 display: flex;
@@ -29,6 +41,11 @@
                 font-size: 1em;
                 margin: 0.5em;
             }
+             
+            #counter_div {
+                margin:0.5em;
+            }
+            
             #message-input-container {
                 margin:0.5em;
             }
@@ -100,15 +117,16 @@
             }
         </style>
     </head>  
-    <body>
+    <body onload="zeroCount()">
         <div id="outer-frame" class="box">
             <div id="title-box" class="box">
                 title
             </div>
             <div id="top-box" class="box">
-                <div id="input-container"><label>Name: </label><input type="text" name="name" class="input-style" required></div>
-			    <div id="input-container"><label>E-mail: </label><input type="text" name="email" class="input-style" required></div>
-				<div id="message-input-container"><textarea name="message" id="message-style" placeholder="Type message here..."></textarea></div>
+                <div id="input-container"><label class="marker">Name: </label><input type="text" name="name" class="input-style" required></div>
+			    <div id="input-container"><label class="marker">E-mail: </label><input type="text" name="email" class="input-style" required></div>
+				<div id="message-input-container"><textarea name="message" id="message-style" placeholder="Type message here..." maxLength="400" onkeyup="counter(this);"></textarea></div>
+                <div id="counter_div"></div>
 				<div id="submit-container"><input type="submit" value="Submit Message" id="submit"></div>
             </div>
             <div id="bot-box" class="box">
