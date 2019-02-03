@@ -1,5 +1,6 @@
 <?php
 require "credentials.php";
+require "createPage.php";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -42,8 +43,24 @@ function testPrint($data) {
     echo '<br />----------------------<br/>';
     echo "</pre>";
 }
-testPrint($data_1);
+/*testPrint($data_1);
 testPrint($data_2);
-testPrint($data_3);
+testPrint($data_3);*/
 $conn->close();
+
+
+$num = count($data_1,0);
+
+$assocArray = array();
+for($i = 0; $i < $num; $i++) {
+    $record = $data_1[$i];
+    $assocArray[$i] = createRow($displayPK, $displayDate, $displayName, $displayEmail, $record); 
+}
+
+//printAssoc($assocArray);
+$pageArray = createPage($assocArray, $resultsPerPage);
+//printPages($pageArray);
+
+
+
 ?> 
