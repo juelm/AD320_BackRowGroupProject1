@@ -1,12 +1,49 @@
-<?Php  
-   
-     $dataArray = array (
-        array("PK"=>0, "name"=>"John Doe", "date"=>"12/21/18", "email"=>"johndoe@fakemail.com", "text"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis ligula eleifend orci condimentum fermentum. Duis urna elit, semper ac purus ac, egestas consequat risus. Vestibulum pretium, libero ac posuere tincidunt, nibh mauris sollicitudin massa, a malesuada lorem nisi rhoncus augue."),
-        array("PK"=>1, "name"=>"Jane Doe", "date"=>"1/3/19", "email"=>"janedoe@fakemail.com", "text"=>"Mauris bibendum ligula nisl, at sagittis lectus bibendum et. Vestibulum in rutrum purus. Nunc condimentum, elit in lacinia semper, nisl magna luctus nulla, in efficitur arcu felis eu dolor."), 
-        array("PK"=>2, "name"=>"Bobby McGee", "date"=>"1/7/19", "email"=>"bobmcgee@fakemail.com", "text"=>"Proin volutpat dignissim molestie. Curabitur neque felis, dapibus eget mattis a, feugiat molestie elit. Sed facilisis lectus nunc, vel venenatis diam ullamcorper nec."),
-        array("PK"=>3, "name"=>"Randall Stephens", "date"=>"1/13/19", "email"=>"rstephens@fakemail.com", "text"=>"Donec tortor massa, aliquet quis vestibulum ac, accumsan at lorem."),
-        array("PK"=>4, "name"=>"Rolo Tomasi", "date"=>"1/7/19", "text"=>"In turpis erat, viverra at fermentum et, pulvinar dignissim purus. Proin quis nulla et elit eleifend tristique.")
-     )
-     
-     
-     ?>
+<?php
+require "credentials.php";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+//Array of Messeges of the whole database(include all fields)
+$sql_1 = "SELECT MessageID, PostName, PostDate, Email, Message FROM Messages";
+$result_1 = $conn->query($sql_1);
+
+    $data_1 = array();
+    while($row = $result_1->fetch_assoc()) {
+        $data_1[]= $row;
+    }
+
+//Array of Messeges with out Name and email
+$sql_2 = "SELECT MessageID,  PostDate,  Message FROM Messages";
+$result_2 = $conn->query($sql_2);
+
+    $data_2= array();
+    while($row = $result_2->fetch_assoc()) {
+        $data_2[]= $row;
+    }
+
+//Array of Messeges with out Date
+$sql_3 = "SELECT MessageID, PostName, Email, Message FROM Messages";
+$result_3 = $conn->query($sql_3);
+
+    $data_3 = array();
+    while($row = $result_3->fetch_assoc()) {
+        $data_3[]= $row;
+    }
+
+// this function is only for testing the connection with DB 
+//and to display the all arrays (you can delete if the connection is working)
+function testPrint($data) {
+    echo "<pre>";
+    print_r($data);
+    echo '<br />----------------------<br/>';
+    echo "</pre>";
+}
+testPrint($data_1);
+testPrint($data_2);
+testPrint($data_3);
+$conn->close();
+?> 
