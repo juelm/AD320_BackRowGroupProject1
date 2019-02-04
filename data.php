@@ -1,4 +1,4 @@
- <?php
+<?php
 require "credentials.php";
 require "createPage.php";
 
@@ -37,13 +37,13 @@ while($row = $result_1->fetch_assoc()) {
 
 $conn->close();
 
-$num = count($data_1,0);
+// $num = count($data_1,0);
 
-$assocArray = array();
-for($i = 0; $i < $num; $i++) {
-    $record = $data_1[$i];
-    $assocArray[$i] = createRow($displayPK, $displayDate, $displayName, $displayEmail, $record); 
-}
+// $assocArray = array();
+// for($i = 0; $i < $num; $i++) {
+    // $record = $data_1[$i];
+    // $assocArray[$i] = createRow($displayPK, $displayDate, $displayName, $displayEmail, $record); 
+// }
 
 $return = json_encode($data_1);
 echo $return;
