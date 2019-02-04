@@ -1,26 +1,7 @@
-
-
-<?php 
-     require "data.php";
-     require "parseData.php";
-     
-     ?>
-
 <html>
     <head>
         <title>mockup</title>
-        <script>
-            var maxChar;
-            function zeroCount(){
-                maxChar = document.getElementById("message-style").maxLength;
-                document.getElementById('counter_div').innerHTML = 
-                    '0/'+maxChar;
-            }
-            function counter(msg){
-                document.getElementById('counter_div').innerHTML = 
-                    msg.value.length+'/'+maxChar;
-            }
-        </script>
+        <script src='script.js'></script>
         <style>
             #outer-frame {
                 display: flex;
@@ -84,30 +65,24 @@
                 margin-bottom: 0;
             }
             #title-container{
+				display:flex;
+				justify-content: space-between;
             	width: 100%;
             	margin: 0;
             }
 
             #name-linked{
-            	width:50%;
-                display: inline-block;
-                text-align: left;
-                float: left;
             }
             
             #date{
-            	width:50%;
-                display: inline-block;
-                text-align: left;
-                float: right;
             }
-            
             
             .message-container {
             border: 1px solid;
             padding: 0.5em;
             margin: 0.5em;
             }
+			
             #message-style {
                 resize: vertical;
                 max-height: 200px;  
@@ -117,28 +92,32 @@
             }
         </style>
     </head>  
-    <body onload="zeroCount()">
-        <div id="outer-frame" class="box">
-            <div id="title-box" class="box">
-                title
+    <body onload='zeroCount()'>
+		<input type = 'button' onclick = 'displayPage(1)' value='Press Button'>
+        <div id='outer-frame' class='box'>
+            <div id='title-box' class='box'>
+                title currentpage:<span id='current-page'>0</span> start:<span id='start'>0</span> stop:<span id='stop'>0</span>
             </div>
-            <div id="top-box" class="box">
-                <div id="input-container"><label class="marker">Name: </label><input type="text" name="name" class="input-style" required></div>
-			    <div id="input-container"><label class="marker">E-mail: </label><input type="text" name="email" class="input-style" required></div>
-				<div id="message-input-container"><textarea name="message" id="message-style" placeholder="Type message here..." maxLength="400" onkeyup="counter(this);"></textarea></div>
-                <div id="counter_div"></div>
-				<div id="submit-container"><input type="submit" value="Submit Message" id="submit"></div>
+            <div id='top-box' class='box'>
+                <div id='input-container'>
+					<label class='marker'>Name: </label><input type='text' name='name' class='input-style' required>
+				</div>
+			    <div id='input-container'>
+					<label class='marker'>E-mail: </label><input type='text' name='email' class='input-style' required>
+				</div>
+				<div id='message-input-container'>
+					<textarea name='message' id='message-style' placeholder='Type message here...' maxLength='400' onkeyup='counter(this);'></textarea>
+				</div>
+                <div id='counter_div'></div>
+				<div id='submit-container'>
+					<input type='submit' value='Submit Message' id='submit'>
+				</div>
             </div>
-            <div id="bot-box" class="box">
-                
-                <?php  
-                     parseData($dataArray);
-                     
-                ?>                
-                  
+            <div id='bot-box' class='box'>
+                <span id='display'>hello</span>           
             </div>         
-            <div id="footer" class="box">
-                <a href="linkhere"><<</a> [<a href="linkhere">1</a>] [<a href="linkhere">2</a>] [<a href="linkhere">3</a>] [<a href="linkhere">4</a>] <a href="linkhere">>></a>
+            <div id='footer' class='box'>
+                <span id ='page-select'><a id='back-page' onclick='backPage()'>back</a>||<a id='forward-page' onclick='forwardPage()'>forward</a></span>
             </div>
         </div>
     </body>
