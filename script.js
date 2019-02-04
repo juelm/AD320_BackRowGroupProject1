@@ -4,7 +4,6 @@ var commentsPerPage = 8;
 var currentPage = 1;
 var maxPages = 10;
 var maxChar;
-
 function forwardPage(){
 	if (currentPage < maxPages) {
 		currentPage += 1;

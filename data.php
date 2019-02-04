@@ -17,24 +17,23 @@ while($row = $result_1->fetch_assoc()) {
 	$data_1[]= $row;
 }
 
+// //Array of Messages with out Name and email
+// $sql_2 = "SELECT MessageID,  PostDate,  Message FROM Messages";
+// $result_2 = $conn->query($sql_2);
 
-//Array of Messeges with out Name and email
-$sql_2 = "SELECT MessageID,  PostDate,  Message FROM Messages";
-$result_2 = $conn->query($sql_2);
+// $data_2= array();
+// while($row = $result_2->fetch_assoc()) {
+	// $data_2[]= $row;
+// }
 
-$data_2= array();
-while($row = $result_2->fetch_assoc()) {
-	$data_2[]= $row;
-}
+// //Array of Messages with out Date
+// $sql_3 = "SELECT MessageID, PostName, Email, Message FROM Messages";
+// $result_3 = $conn->query($sql_3);
 
-//Array of Messeges with out Date
-$sql_3 = "SELECT MessageID, PostName, Email, Message FROM Messages";
-$result_3 = $conn->query($sql_3);
-
-$data_3 = array();
-while($row = $result_3->fetch_assoc()) {
-	$data_3[]= $row;
-}
+// $data_3 = array();
+// while($row = $result_3->fetch_assoc()) {
+	// $data_3[]= $row;
+// }
 
 $conn->close();
 
@@ -46,7 +45,7 @@ for($i = 0; $i < $num; $i++) {
     $assocArray[$i] = createRow($displayPK, $displayDate, $displayName, $displayEmail, $record); 
 }
 
-$return = json_encode($assocArray);
+$return = json_encode($data_1);
 echo $return;
 
  
