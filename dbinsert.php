@@ -12,7 +12,7 @@
     }
     
     $name = $_POST["name"];
-    $date = date("Y-m-d");
+    $date = time();
     $email = $_POST["email"];
     $comment = $_POST["message"];
 

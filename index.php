@@ -124,7 +124,7 @@
 				<div id='submit-container'>
 					<input type='submit' value='Submit Message' id='submit'>
 				</div>
-			</div>
+			</form>
 			<div id='bot-box' class='box'>
 				<span id='display'>hello</span>
 			</div>
