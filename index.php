@@ -3,6 +3,7 @@
     $messageStatus = $_SESSION["status"];
     $_SESSION["status"] = "";
 ?>
+
 <html>
 	<head>
 		<title>Guestbook</title>
@@ -101,10 +102,12 @@
 			}
 		</style>
 	</head>
+
 	<body onload='zeroCount()' oninput='blankStatus()' >
+		<input type = 'button' onclick = 'displayPage(1)' value='Press Button'>
 		<div id='outer-frame' class='box'>
 			<div id='title-box' class='box'>
-				title
+				title currentpage:<span id='current-page'>0</span> start:<span id='start'>0</span> stop:<span id='stop'>0</span>
 			</div>
 			<form id="top-box" class="box" action="dbinsert.php" method="post">
 				<div id='input-container'>
@@ -117,26 +120,17 @@
 					<textarea name='message' id='message-style' placeholder='Type message here...' maxLength='400' onkeyup='counter(this);'></textarea>
 				</div>
 				<div id='counter_div'></div>
-                <div id='status_container'><?php echo $messageStatus; ?></div>
+        <div id='status_container'><?php echo $messageStatus; ?></div>
 				<div id='submit-container'>
 					<input type='submit' value='Submit Message' id='submit'>
 				</div>
-			</form>
-			<div id="bot-box" class="box">
-                
-
-
-                <?php  
-//                     parseData($dataArray);
-                     
-                ?>                
-
-
-                  
-            </div>         
-            <div id="footer" class="box">
-                <a href="linkhere"><<</a> [<a href="linkhere">1</a>] [<a href="linkhere">2</a>] [<a href="linkhere">3</a>] [<a href="linkhere">4</a>] <a href="linkhere">>></a>
-            </div>
+			</div>
+			<div id='bot-box' class='box'>
+				<span id='display'>hello</span>
+			</div>
+			<div id='footer' class='box'>
+				<span id ='page-select'><a id='back-page' onclick='backPage()'>back</a>||<a id='forward-page' onclick='forwardPage()'>forward</a></span>
+			</div>
 		</div>
 	</body>
 </html>
