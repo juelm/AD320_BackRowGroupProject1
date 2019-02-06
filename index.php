@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    $messageStatus = $_SESSION["status"];
+    $_SESSION["status"] = "";
+?>
+
 <html>
 	<head>
 		<title>Guestbook</title>
@@ -26,7 +32,11 @@
 			#counter_div {
 				margin:0.5em;
 			}
-			
+            
+            #status_container {
+				margin:0.5em;
+			}
+            			
 			#message-input-container {
 				margin:0.5em;
 			}
@@ -92,13 +102,14 @@
 			}
 		</style>
 	</head>
-	<body onload='zeroCount()'>
+
+	<body onload='zeroCount()' oninput='blankStatus()' >
 		<input type = 'button' onclick = 'displayPage(1)' value='Press Button'>
 		<div id='outer-frame' class='box'>
 			<div id='title-box' class='box'>
 				title currentpage:<span id='current-page'>0</span> start:<span id='start'>0</span> stop:<span id='stop'>0</span>
 			</div>
-			<div id='top-box' class='box'>
+			<form id="top-box" class="box" action="dbinsert.php" method="post">
 				<div id='input-container'>
 					<label class='marker'>Name: </label><input type='text' name='name' class='input-style' required>
 				</div>
@@ -109,6 +120,7 @@
 					<textarea name='message' id='message-style' placeholder='Type message here...' maxLength='400' onkeyup='counter(this);'></textarea>
 				</div>
 				<div id='counter_div'></div>
+        <div id='status_container'><?php echo $messageStatus; ?></div>
 				<div id='submit-container'>
 					<input type='submit' value='Submit Message' id='submit'>
 				</div>

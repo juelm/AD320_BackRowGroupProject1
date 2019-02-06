@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS back_row;
 
+USE back_row;
+
 DROP TABLE IF EXISTS MESSAGES;
 
 CREATE TABLE MESSAGES
@@ -11,8 +13,6 @@ Email					VARCHAR(30),
 Message				VARCHAR(400)
 
 );
-
-USE back_row;
 
 INSERT INTO MESSAGES 
 (PostName, PostDate, Email, Message)

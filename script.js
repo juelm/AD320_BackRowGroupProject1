@@ -80,3 +80,7 @@ function zeroCount(){
 function counter(msg){
 	document.getElementById('counter_div').innerHTML = msg.value.length+'/'+maxChar;
 }
+function blankStatus() {
+    document.getElementById('status_container').innerHTML = "";
+}
+  
