@@ -1,8 +1,9 @@
-CREATE DATABASE IF NOT EXISTS back_row;
+DROP DATABASE IF EXISTS back_row ;
+CREATE DATABASE back_row;
 
 USE back_row;
 
-DROP TABLE IF EXISTS MESSAGES;
+DROP TABLE IF EXISTS MESSAGES, ADMINS;
 
 CREATE TABLE MESSAGES
 (
@@ -65,3 +66,20 @@ Curabitur neque felis, dapibus eget mattis a, feugiat molestie elit. Sed facilis
 ("Randall Stephens", unix_timestamp('2018-12-14 01:00:00') + (86400 * 37), "rstephens@fakemail.com", "jfksld;fhgiuoas;jfgi"),
 
 ("Rolo Tomasi", unix_timestamp('2018-12-14 01:00:00') + (86400 * 39), "roto@fakemail.com", "I love leaving comments!");
+
+
+
+CREATE TABLE ADMINS
+(
+AdminID			INT 								PRIMARY KEY			AUTO_INCREMENT,
+Username			VARCHAR(30),
+AdminPassword		VARCHAR(30)								
+);
+
+INSERT INTO ADMINS
+(Username, AdminPassword)
+VALUES
+( "admin1", "a1a1a1"),
+( "admin2", "a2a2a2"),
+( "admin3", "a3a3a3"),
+( "admin4", "a4a4a4");
