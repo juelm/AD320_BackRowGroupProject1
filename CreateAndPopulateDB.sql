@@ -3,7 +3,7 @@ CREATE DATABASE back_row;
 
 USE back_row;
 
-DROP TABLE IF EXISTS MESSAGES;
+DROP TABLE IF EXISTS MESSAGES, ADMINS;
 
 CREATE TABLE MESSAGES
 (
@@ -68,40 +68,18 @@ Curabitur neque felis, dapibus eget mattis a, feugiat molestie elit. Sed facilis
 ("Rolo Tomasi", unix_timestamp('2018-12-14 01:00:00') + (86400 * 39), "roto@fakemail.com", "I love leaving comments!");
 
 
-DROP TABLE IF EXISTS ADMINS;
 
 CREATE TABLE ADMINS
 (
 AdminID			INT 								PRIMARY KEY			AUTO_INCREMENT,
-Username			VARCHAR(30)		UNIQUE,
-AdminPassword		VARCHAR(30)	UNIQUE
-
+Username			VARCHAR(30),
+AdminPassword		VARCHAR(30)								
 );
 
 INSERT INTO ADMINS
 (Username, AdminPassword)
 VALUES
-( "Fake Admin", "BadPassword"),
+( "admin1", "a1a1a1"),
 ( "admin2", "a2a2a2"),
 ( "admin3", "a3a3a3"),
 ( "admin4", "a4a4a4");
-
-DROP TABLE IF EXISTS PREFERENCES;
-
-CREATE TABLE PREFERENCES
-(
-PreferenceID			INT 								PRIMARY KEY			AUTO_INCREMENT,
-PostName		Boolean,
-PostEmail		Boolean,
-PostMessage   Boolean,
-DisplayDate     Boolean,
-DisplayName     Boolean,
-DisplayEmail     Boolean,
-PageResults     INT            					NOT NULL,
-TotalResults     INT            					NOT NULL
-);
-
-INSERT INTO PREFERENCES
-
-VALUES
-( 1, true,  true, true, true, true, true, 5, 20);
