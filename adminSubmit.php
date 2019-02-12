@@ -1,4 +1,13 @@
-<!DOCTYPE HTML>
+<?php
+    
+    $storedUser = "Fake Admin";
+    $storedPW = "BadPassword";
+
+    $checkUser = $_POST["username"];
+    $checkPW = $_POST["password"];
+
+    if($storedUser === $checkUser && $storedPW === $checkPW){
+        echo '<!DOCTYPE HTML>
 <html lang="en">
 <style type="text/css">
 
@@ -97,3 +106,9 @@ body {
 	</div>
 </body>
 </html>
+';
+    }else {
+        echo "Invalid User Name or Pass Word.";
+    }
+
+?>
