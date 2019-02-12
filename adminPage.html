@@ -31,7 +31,7 @@ body {
 	width: 20%;
 	height: 30px;
 }
-#save {
+#admin-form2 button[type="submit"] {
 	cursor:pointer;
 	width:100%;
 	margin:0 0 5px;
@@ -39,7 +39,7 @@ body {
 	
 }
 
-#save :hover {
+#admin-form2 button[type="submit"]:hover {
 	background:#ddc6b6; 	
 }
 
@@ -55,28 +55,28 @@ body {
 
 <body>
 <div id="form-container">
-	<form id="admin-form2" action = "getVariables.php" method = "get">
+	<form id="admin-form2">
 		
 	<div class ="box">
 		<h1>Information to post</h1>
-		  <input id="name-post" name = "name-post" type="checkbox" />
+		  <input id="name-post" type="checkbox" />
 		  <label for="name-post">Name</label><br>
-		  <input id="email-post" name = "email-post" type="checkbox" />
+		  <input id="email-post" type="checkbox" />
 		  <label for="email-post">Email</label><br>
-		  <input id="date-post" name = "date-post" value = "true" type="checkbox" />
+		  <input id="date-post" type="checkbox" />
 		  <label for="date-post">Date</label><br>
-		  <input id="message-post" name = "message-post" type="checkbox" />
+		  <input id="message-post" type="checkbox" />
 		  <label for="message-post">Message</label><br>
 	</div>
 
 	
 	<div class = "box">
-		<h1>Required information</h1>
-		  <input id="name-input" name = "name-input" value = "true" type="checkbox" />
+		<h1>Required infromation</h1>
+		  <input id="name-input" type="checkbox" />
 		  <label for="name-input">Name</label><br>
-		  <input id="email-input" name = "email-input" value = "true" type="checkbox" />
+		  <input id="email-input" type="checkbox" />
 		  <label for="email-input">Email</label><br>
-		  <input id="message-input" name = "message-input" value = "true" type="checkbox" />
+		  <input id="message-input" type="checkbox" />
 		  <label for="message-input">Messege</label><br>
 	</div>
 	
@@ -90,7 +90,7 @@ body {
 		 <input id="comment3" name="comment3" type="text"  value=""><br>         
 	</div>
 	<div>
-	<input id="save" value = "Save Changes" type="submit"/><br>	
+	<button id="save" type="submit"/>Save changes </button><br>	
 	</div>
 	</form>
 

@@ -1,52 +1,41 @@
 <?php
     require "credentials.php";
-    require "getVariables.php";
 
     //Establish DB Connection
-    $conn1 = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
     //Check connection
-    if($conn1->connect_error) {
-        die("Connection Failed: " . $conn1->connect_error);
+    if($conn->connect_error) {
+        die("Connection Failed: " . $conn->connect_error);
     }
 
     //query the DB
-    $dbQuery1 = $updatePreference;;
+    $dbQuery = "SELECT *
+                FROM MESSAGES";
     
-    $result1 = $conn1->query($dbQuery1);
+    $result = $conn->query($dbQuery);
 
-    /*if($result1->num_rows > 0) {
-        $dbArray1 = array();
+    if($result->num_rows > 0) {
+        $dbArray = array();
         $index = 0;
-        while($row = $result1->fetch_assoc()){
+        while($row = $result->fetch_assoc()){
             
-            $dbArray1[$index] = array($row);
+            $dbArray[$index] = array($row);
             $index++;
             
-            echo
+            /*echo
                 "'PK: '" . $row["MessageID"] .
                 "name: " . $row["PostName"] .
                 "email: " . $row["Email"] .
-                "text: " . $row["Message"];
+                "text: " . $row["Message"];*/
         }
-    }else{
-        echo "That is not a valid User Name.";
     }
-
-    $storedUser = $dbArray1[0]["Username"];
-    $storedPW = $dbArray1[0]["Password"];
-
-    if($storedUser === $checkUser){
-        
-    }
-
-
-    foreach($dbArray1 as $line){
+    foreach($dbArray as $line){
         foreach($line as $inner){
         echo implode($inner,", ");
         echo "<br>";
         echo "<br>";
         }
-    }*/
+    }
 
 ?>
