@@ -1,19 +1,7 @@
 <?php
     session_start();
     $messageStatus = $_SESSION["status"];
-    $nameErr = $_SESSION["nameError"];
-    $emailErr = $_SESSION["emailError"];
-    $commentErr = $_SESSION["commentError"];
-    $name = $_SESSION["name"];
-    $email = $_SESSION["email"];
-    $comment = $_SESSION["comment"];
     $_SESSION["status"] = "";
-    $_SESSION["nameError"] = "";
-    $_SESSION["emailError"] = "";
-    $_SESSION["commentError"] = "";
-    $_SESSION["name"] = "";
-    $_SESSION["email"] = "";
-    $_SESSION["comment"] = "";
 ?>
 
 <html>
@@ -69,10 +57,6 @@
 				margin-right: 0.5em;
 				line-height: 24px;
 			}
-            .error{
-                color: red; 
-                margin-left: 5px;
-            }
 			.input-style {
 				width: 80%;
 			}
@@ -127,24 +111,20 @@
 			</div>
 			<form id="top-box" class="box" action="dbinsert.php" method="post">
 				<div id='input-container'>
-					<label class='marker'>Name: </label><input type='text' name='name' class='input-style' value="<?php echo $name;?>" >
-                    <span class="error"><?php echo $nameErr;?></span>
+					<label class='marker'>Name: </label><input type='text' name='name' class='input-style' required>
 				</div>
 				<div id='input-container'>
-					<label class='marker'>E-mail: </label><input type='text' name='email' class='input-style' value="<?php echo $email;?>">
-                    <span class="error"><?php echo $emailErr;?></span>
+					<label class='marker'>E-mail: </label><input type='text' name='email' class='input-style' required>
 				</div>
 				<div id='message-input-container'>
-					<textarea name='message' id='message-style' placeholder='Type message here...' maxLength='400' onkeyup='counter(this);'><?php echo $comment;?></textarea>
-                    <div class="error"> <?php echo $commentErr;?></div>
+					<textarea name='message' id='message-style' placeholder='Type message here...' maxLength='400' onkeyup='counter(this);'></textarea>
 				</div>
 				<div id='counter_div'></div>
-                <div id='status_container'><?php echo $messageStatus; ?></div>
+        <div id='status_container'><?php echo $messageStatus; ?></div>
 				<div id='submit-container'>
 					<input type='submit' value='Submit Message' id='submit'>
 				</div>
 			</form>
-            
 			<div id='bot-box' class='box'>
 				<span id='display'>hello</span>
 			</div>
