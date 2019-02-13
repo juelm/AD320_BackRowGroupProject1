@@ -119,8 +119,7 @@
 		</style>
 	</head>
 
-	<body onload='zeroCount()' oninput='blankStatus()' >
-		<input type = 'button' onclick = 'displayPage(1)' value='Press Button'>
+	<body onload='zeroCount(); displayPage(1)' oninput='blankStatus()' >
 		<div id='outer-frame' class='box'>
 			<div id='title-box' class='box'>
 				title currentpage:<span id='current-page'>0</span> start:<span id='start'>0</span> stop:<span id='stop'>0</span>
