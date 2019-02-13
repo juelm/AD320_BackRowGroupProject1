@@ -1,11 +1,46 @@
 <?php
-
-    $displayPK = true;
-    $displayDate = true;
-    $displayName = true;
-    $displayEmail = true;
-    $resultsPerPage = 5;
     
+    function selectColumns($PK, $dispDate, $dispName, $dispEmail, $numResults){
+        $columnString = "SELECT";
+        $fromTable = "FROM MESSAGES";
+        $limit = "";
+        
+        //if PK to be displayed add it to query
+        if($PK) {
+            $columnString = $columnString . " MessageID, ";    
+        }
+       
+        //if Name to be displayed add it to query
+        if($dispName) {
+            $columnString = $columnString . " PostName, ";
+        }
+        
+        //if Date to be displayed add it to query
+        if($dispDate) {
+            $columnString = $columnString . " PostDate, ";
+        }
+        
+        //if Email to be displayed add it to query
+        if($dispEmail) {
+            $columnString = $columnString . " Email, ";
+        }
+        
+        //Text will always be displayed, add it to query
+        
+        $columnString = $columnString . " Message ";
+        
+        if($numResults > 0){
+            $limit = " LIMIT " . $numResults;
+        }
+        
+        $orderBy = " ORDER BY PostDate DESC";
+        
+        $wholeQuery = $columnString . $fromTable . $orderBy . $limit;
+        
+        return $wholeQuery;
+       
+    }
+
 
     function createRow($PK, $dispDate, $dispName, $dispEmail, $inRow){
         $outRow = array();
@@ -21,7 +56,7 @@
         if($dispName) {
             $outRow["PostName"] = $inRow["PostName"]; 
         }else{
-            $outRow["PostName"] = null;
+            $outRow["PostName"] = "Anonymous";
         }
         
         //if Date to be displayed add it to query

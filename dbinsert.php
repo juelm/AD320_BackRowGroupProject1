@@ -2,7 +2,6 @@
 
     session_start();
     require "credentials.php"; 
-    require "getVariables.php";
 
     //Establish DB Connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -17,7 +16,7 @@
     $nameErr = $emailErr = $commentErr = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      if (empty(trim_input($_POST["name"])) && $postName) {
+      if (empty(trim_input($_POST["name"]))) {
             $nameErr = "Name is required"; 
       } else {
             $name = test_input($_POST["name"]);
@@ -26,7 +25,7 @@
                 $name = "";
             }                  
       }
-      if (empty(trim_input($_POST["email"])) && $postEmail) {
+      if (empty(trim_input($_POST["email"]))) {
             $emailErr = "Email is required";
       } else {
             $email = test_input($_POST["email"]);
@@ -35,7 +34,7 @@
                 $email = "";
             }
       }
-      if (empty(trim_input($_POST["message"])) && $postMessage) {
+      if (empty(trim_input($_POST["message"]))) {
             $commentErr = "Comment is required";
       } else {
             $comment = test_input($_POST["message"]);
